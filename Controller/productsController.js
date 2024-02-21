@@ -11,8 +11,9 @@ export const productController = async (req, res) => {
 };
 export const getProductById = async (req, res) => {
   try {
-    const id = req.param.id;
-    const data = await product.findOne(id);
+    const id = req.params.id;
+    const data = await product.findOne({ id });
+
     res.status(200).json({ data });
   } catch (error) {
     res.status(500).json({ error: error.message });
