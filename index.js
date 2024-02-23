@@ -7,6 +7,15 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 const app = express();
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://flipcart-fronted.vercel.app"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 app.use(express.json());
 app.use(bodyParser.json());
 dotenv.config();
