@@ -9,7 +9,6 @@ export const Connection = async () => {
     await mongoose.connect(URL, {
       // useNewUrlParser: true,
     });
-    console.log("connected successfully");
   } catch (error) {
     console.log("error is", error);
   }
