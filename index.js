@@ -8,12 +8,7 @@ import cors from "cors";
 
 const app = express();
 app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://flipcart-backend-efqg4uzxc-shifas-projects-7c27f786.vercel.app"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
 app.use(express.json());
