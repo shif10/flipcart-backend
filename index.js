@@ -30,4 +30,16 @@ const startServer = async () => {
   }
 };
 
+// Adding a middleware to check for authentication
+app.use((req, res, next) => {
+  // Check if the request has an Authorization header
+  if (!req.headers.authorization) {
+    // If not, send a 401 status code with a WWW-Authenticate header
+    res.setHeader("WWW-Authenticate", 'Basic realm="Secure Area"');
+    return res.status(401).send("Unauthorized");
+  }
+  // If the request has an Authorization header, continue to the next middleware
+  next();
+});
+
 startServer();
